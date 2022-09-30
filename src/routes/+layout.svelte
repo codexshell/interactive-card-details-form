@@ -5,3 +5,10 @@
 <main>
 	<slot />
 </main>
+
+<style>
+	:global(body) {
+		font-family: theme('fontFamily.space-grotesk');
+		font-size: theme('fontSize.body-copy');
+	}
+</style>
