@@ -1,5 +1,6 @@
 <script>
 	import Form from '$lib/Form.svelte';
+	import Images from '$lib/Images.svelte';
 </script>
 
 <svelte:head>
@@ -8,10 +9,18 @@
 </svelte:head>
 
 <section class="App">
-	<section class="hero" />
+	<section class="hero">
+		<Images />
+	</section>
 	<section class="main">
 		<Form />
 	</section>
 </section>
 
-<style></style>
+<style>
+	.App {
+		display: flex;
+		flex-direction: column;
+		gap: theme('gap.20');
+	}
+</style>

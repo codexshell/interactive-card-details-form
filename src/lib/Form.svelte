@@ -1,10 +1,10 @@
 <script>
-	let completed = false;
+	let isValid = false;
 
 	function handleFormSubmit() {
 		// validate form and then change state
-		 //TODO: Add form validation logic
-		completed = true;
+		//TODO: Add form validation logic
+		isValid = true;
 	}
 
 	function handleFocus(e) {
@@ -19,12 +19,12 @@
 
 	function hadndleContinueClick() {
 		// render new copy of the form
-		completed = false;
+		isValid = false;
 	}
 </script>
 
 <!-- default state -->
-{#if !completed}
+{#if !isValid}
 	<form class="flow" on:submit|preventDefault={handleFormSubmit}>
 		<div class="wrapper">
 			<label for="name">Cardholder Name</label>
@@ -173,13 +173,13 @@
 		width: 100%;
 		background-color: theme('colors.n-very-dark-violet');
 		color: theme('colors.n-white');
-		padding-block: theme('padding[4]');
+		padding-block: theme('padding[3]');
 		border-radius: theme('borderRadius.lg');
-		--flow-space: theme('margin.6');
+		--flow-space: theme('margin.8');
 	}
 
 	button:active {
-		background-color: theme("colors.n-dark-grayish-violet");
+		background-color: theme('colors.n-dark-grayish-violet');
 	}
 
 	.complete {
