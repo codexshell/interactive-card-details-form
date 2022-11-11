@@ -9,6 +9,8 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^17.2.0",
+		"@commitlint/config-conventional": "^17.2.0",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"autoprefixer": "^10.4.12",
