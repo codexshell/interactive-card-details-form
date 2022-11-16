@@ -25,7 +25,7 @@
 
 <!-- default state -->
 {#if !isValid}
-	<form class="flow" on:submit|preventDefault={handleFormSubmit}>
+	<form autocomplete="off" class="flow" on:submit|preventDefault={handleFormSubmit}>
 		<div class="wrapper">
 			<label for="name">Cardholder Name</label>
 			<div>
