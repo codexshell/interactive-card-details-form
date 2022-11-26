@@ -34,6 +34,12 @@
 		height: 15rem;
 	}
 
+	@media (min-width: theme("screens.xl")) {
+		section {
+			background-image: url('/bg-main-desktop.png');
+		}
+	}
+
 	.back {
 		margin-left: auto;
 		position: relative;
