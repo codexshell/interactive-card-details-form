@@ -22,5 +22,22 @@
 		display: flex;
 		flex-direction: column;
 		gap: theme('gap.20');
+		max-width: 90rem;
+	}
+
+	@media (min-width: theme('screens.xl')) {
+		.App {
+			flex-direction: row;
+		}
+
+		.hero {
+			flex-basis: 35%;
+		}
+
+		.main {
+			display: grid;
+			place-content: center;
+			margin-inline: auto;
+		}
 	}
 </style>

@@ -6,13 +6,13 @@
 	export let cardNumber = '0000 0000 0000 0000';
 </script>
 
-<section>
-	<div class="img-container">
+<section class="relative">
+	<div class="img-container | back-img-container">
 		<img class="back" src="/bg-card-back.png" alt="" />
 		<span class="card-cvc">{cvc}</span>
 	</div>
 
-	<div class="img-container">
+	<div class="img-container | front-img-container">
 		<span class="logo-svg"><img src="/card-logo.svg" alt="" /></span>
 		<img class="front" src="/bg-card-front.png" alt="" />
 		<span class="card-number">{cardNumber}</span>
@@ -26,6 +26,25 @@
 		width: theme('width.72');
 	}
 
+	@media (min-width: theme('screens.xl')) {
+		img {
+			width: 90%;
+		}
+	}
+
+	@media (min-width: theme('screens.xl')) {
+		.back-img-container {
+			position: relative;
+			right: -15rem;
+			top: 30rem;
+		}
+
+		.front-img-container {
+			position: relative;
+			right: -10rem;
+		}
+	}
+
 	section {
 		position: relative;
 		background-image: url('/bg-main-mobile.png');
@@ -34,9 +53,10 @@
 		height: 15rem;
 	}
 
-	@media (min-width: theme("screens.xl")) {
+	@media (min-width: theme('screens.xl')) {
 		section {
 			background-image: url('/bg-main-desktop.png');
+			height: 100vh;
 		}
 	}
 
@@ -67,6 +87,14 @@
 		left: 2.25rem;
 	}
 
+	@media (min-width: theme('screens.xl')) {
+		.logo-svg {
+			width: theme('width.24');
+			left: 3rem;
+			top: -0.5rem;
+		}
+	}
+
 	.card-cvc {
 		color: theme('colors.n-white');
 		position: absolute;
@@ -77,6 +105,14 @@
 		letter-spacing: theme('letterSpacing.widest');
 	}
 
+	@media (min-width: theme('screens.xl')) {
+		.card-cvc {
+			font-size: theme('fontSize.base');
+			right: 4.5rem;
+			top: 8.75rem;
+		}
+	}
+
 	.expiry {
 		color: theme('colors.n-white');
 		position: absolute;
@@ -84,6 +120,14 @@
 		left: 15rem;
 		font-size: 0.75rem;
 		letter-spacing: theme('letterSpacing.widest');
+	}
+
+	@media (min-width: theme('screens.xl')) {
+		.expiry {
+			font-size: theme('fontSize.base');
+			top: 10.5rem;
+			left: 24rem;
+		}
 	}
 
 	.card-holder {
@@ -96,11 +140,27 @@
 		text-transform: uppercase;
 	}
 
+	@media (min-width: theme('screens.xl')) {
+		.card-holder {
+			font-size: theme('fontSize.base');
+			left: 3rem;
+			top: 10.5rem;
+		}
+	}
+
 	.card-number {
 		color: theme('colors.n-white');
 		position: absolute;
-    letter-spacing: theme("letterSpacing.widest");
-    left: 2.25rem;
-    top: 3rem;
+		letter-spacing: theme('letterSpacing.widest');
+		left: 2.25rem;
+		top: 3rem;
+	}
+
+	@media (min-width: theme('screens.xl')) {
+		.card-number {
+			font-size: theme('fontSize.3xl');
+			left: 3rem;
+			top: 7rem;
+		}
 	}
 </style>

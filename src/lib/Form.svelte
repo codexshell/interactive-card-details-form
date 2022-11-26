@@ -111,6 +111,13 @@
 		padding-inline: theme('padding.6');
 	}
 
+	@media (min-width: theme('screens.sm')) {
+		form {
+			max-width: theme('maxWidth.md');
+			font-size: theme('fontSize.xl');
+		}
+	}
+
 	label {
 		font-size: theme('fontSize.xs');
 		letter-spacing: 0.15rem;
