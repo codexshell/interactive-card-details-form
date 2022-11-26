@@ -11,7 +11,19 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm install"
+	"postCreateCommand": "npm install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss",
+				"svelte.svelte-vscode",
+				"christian-kohler.npm-intellisense",
+				"christian-kohler.path-intellisense",
+				"naumovs.color-highlight"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
