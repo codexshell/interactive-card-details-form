@@ -1,6 +1,7 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
+	import { handleKeyDown } from "$lib/helper.js";
 
 	let isValid = false;
 
@@ -46,6 +47,7 @@
 			<label for="number">Card Number</label>
 			<div>
 				<input
+					on:keydown={handleKeyDown}
 					use:cleave={{
 						creditCard: true
 					}}
@@ -65,6 +67,7 @@
 				<div class="date">
 					<div>
 						<input
+						on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
 								datePattern: ['m']
@@ -79,6 +82,7 @@
 					</div>
 					<div>
 						<input
+						on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
 								datePattern: ['y']
@@ -97,6 +101,7 @@
 				<label for="cvc">CVC</label>
 				<div>
 					<input
+					on:keydown={handleKeyDown}
 						use:cleave={{
 							blocks: [3],
 							numericOnly: true
@@ -231,5 +236,9 @@
 
 	.complete__btn {
 		--flow-space: 3rem;
+	}
+
+	.invalid {
+		border: 0.05em solid red;
 	}
 </style>
