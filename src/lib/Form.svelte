@@ -1,7 +1,7 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown } from "$lib/helper.js";
+	import { handleKeyDown } from "$lib/form.js";
 
 	let isValid = false;
 
@@ -29,7 +29,7 @@
 
 <!-- default state -->
 {#if !isValid}
-	<form autocomplete="off" class="flow" on:submit|preventDefault={handleFormSubmit}>
+	<form novalidate autocomplete="off" class="flow" on:submit|preventDefault={handleFormSubmit}>
 		<div class="wrapper">
 			<label for="name">Cardholder Name</label>
 			<div>
