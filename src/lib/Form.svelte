@@ -1,7 +1,7 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown } from "$lib/form.js";
+	import { handleKeyDown } from '$lib/form.js';
 
 	let isValid = false;
 
@@ -41,7 +41,7 @@
 					placeholder="e.g. Jane Appleseed"
 				/>
 				<div class="relative">
-				 <span class="error"></span>
+					<span class="error" />
 				</div>
 			</div>
 		</div>
@@ -61,8 +61,8 @@
 					type="text"
 					placeholder="e.g. 1234 5678 9123 0000"
 				/>
-				<div>
-					<span class="error"></span>
+				<div class="relative">
+					<span class="error" />
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 				<div class="date">
 					<div>
 						<input
-						on:keydown={handleKeyDown}
+							on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
 								datePattern: ['m']
@@ -85,13 +85,13 @@
 							type="text"
 							placeholder="MM"
 						/>
-					<div class="relative">
-						<span class="error"></span>
-					</div>
+						<div class="relative">
+							<span class="error" />
+						</div>
 					</div>
 					<div>
 						<input
-						on:keydown={handleKeyDown}
+							on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
 								datePattern: ['y']
@@ -102,9 +102,9 @@
 							type="text"
 							placeholder="YY"
 						/>
-					<div class="relative">
-						<span class="error"></span>
-					</div>
+						<div class="relative">
+							<span class="error" />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -113,7 +113,7 @@
 				<label for="cvc">CVC</label>
 				<div>
 					<input
-					on:keydown={handleKeyDown}
+						on:keydown={handleKeyDown}
 						use:cleave={{
 							blocks: [3],
 							numericOnly: true
@@ -126,7 +126,7 @@
 						placeholder="e.g. 123"
 					/>
 					<div class="relative">
-					  <span class="error"></span>
+						<span class="error" />
 					</div>
 				</div>
 			</div>
@@ -147,6 +147,7 @@
 	form {
 		text-transform: uppercase;
 		padding-inline: theme('padding.6');
+		--flow-space: 1.5rem;
 	}
 
 	@media (min-width: theme('screens.sm')) {
@@ -257,7 +258,7 @@
 		color: red;
 		text-transform: initial;
 		font-style: italic;
-		font-size: theme("fontSize.sm");
+		font-size: theme('fontSize.sm');
 		position: absolute;
 		inset: 0;
 	}
