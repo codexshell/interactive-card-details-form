@@ -40,6 +40,9 @@
 					type="text"
 					placeholder="e.g. Jane Appleseed"
 				/>
+				<div class="relative">
+				 <span class="error"></span>
+				</div>
 			</div>
 		</div>
 
@@ -58,6 +61,9 @@
 					type="text"
 					placeholder="e.g. 1234 5678 9123 0000"
 				/>
+				<div>
+					<span class="error"></span>
+				</div>
 			</div>
 		</div>
 
@@ -79,6 +85,9 @@
 							type="text"
 							placeholder="MM"
 						/>
+					<div class="relative">
+						<span class="error"></span>
+					</div>
 					</div>
 					<div>
 						<input
@@ -93,6 +102,9 @@
 							type="text"
 							placeholder="YY"
 						/>
+					<div class="relative">
+						<span class="error"></span>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -113,6 +125,9 @@
 						type="text"
 						placeholder="e.g. 123"
 					/>
+					<div class="relative">
+					  <span class="error"></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -206,7 +221,7 @@
 		color: theme('colors.n-white');
 		padding-block: theme('padding[3]');
 		border-radius: theme('borderRadius.lg');
-		--flow-space: theme('margin.8');
+		--flow-space: theme('margin.12');
 	}
 
 	button:active {
@@ -238,7 +253,12 @@
 		--flow-space: 3rem;
 	}
 
-	.invalid {
-		border: 0.05em solid red;
+	.error {
+		color: red;
+		text-transform: initial;
+		font-style: italic;
+		font-size: theme("fontSize.sm");
+		position: absolute;
+		inset: 0;
 	}
 </style>
