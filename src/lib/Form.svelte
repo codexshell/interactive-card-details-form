@@ -12,6 +12,8 @@
 		if (form.checkValidity()) {
 			// Submit if valid
 			isValid = true;
+			// clear out inputs store value
+			$inputs = "";
 		} else {
 			// If invalid,
 			// prevent form submission.

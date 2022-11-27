@@ -26,7 +26,6 @@ const showErrors = (formElements) => {
 	// Verify all elements are of type text,
 	// and filter out any that are not
 	formElements = formElements.filter((el) => el.type === 'text');
-	console.log(formElements);
 	// For each element show the appropriate error message
 	formElements.forEach((el) => showError(el));
 };
