@@ -148,6 +148,7 @@
 		text-transform: uppercase;
 		padding-inline: theme('padding.6');
 		--flow-space: 1.5rem;
+		padding-bottom: theme('padding.8');
 	}
 
 	@media (min-width: theme('screens.sm')) {
