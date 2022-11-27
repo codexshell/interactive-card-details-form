@@ -1,5 +1,5 @@
 <script>
-	import { inputs } from './stores.js';
+	import { inputs } from '$lib/stores.js';
 </script>
 
 <section class="relative">

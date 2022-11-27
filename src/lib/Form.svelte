@@ -2,6 +2,7 @@
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
 	import { handleKeyDown, showErrors, showError } from '$lib/form.js';
+	import { inputs } from '$lib/stores.js';
 
 	let isValid = false;
 
@@ -47,9 +48,6 @@
 			<label for="name">Cardholder Name</label>
 			<div>
 				<input
-					use:cleave={{
-						
-					}}
 					on:input={(e) => showError(e.target)}
 					on:focus={handleFocus}
 					on:blur={handleBlur}
@@ -57,6 +55,7 @@
 					type="text"
 					placeholder="e.g. Jane Appleseed"
 					required
+					bind:value={$inputs.cardHolder}
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -80,6 +79,7 @@
 					type="text"
 					placeholder="e.g. 1234 5678 9123 0000"
 					required
+					bind:value={$inputs.cardNumber}
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -106,6 +106,7 @@
 							type="text"
 							placeholder="MM"
 							required
+							bind:value={$inputs.month}
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -125,6 +126,7 @@
 							type="text"
 							placeholder="YY"
 							required
+							bind:value={$inputs.year}
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -150,6 +152,7 @@
 						type="text"
 						placeholder="e.g. 123"
 						required
+						bind:value={$inputs.cvc}
 					/>
 					<div class="relative">
 						<span class="error" />
