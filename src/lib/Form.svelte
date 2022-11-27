@@ -1,4 +1,7 @@
 <script>
+	// cleavejs import for number formatting
+	import { cleave } from 'svelte-cleavejs';
+
 	let isValid = false;
 
 	function handleFormSubmit() {
@@ -43,6 +46,9 @@
 			<label for="number">Card Number</label>
 			<div>
 				<input
+					use:cleave={{
+						creditCard: true
+					}}
 					autocomplete="off"
 					on:focus={handleFocus}
 					on:blur={handleBlur}
@@ -59,6 +65,10 @@
 				<div class="date">
 					<div>
 						<input
+							use:cleave={{
+								date: true,
+								datePattern: ['m']
+							}}
 							autocomplete="off"
 							on:focus={handleFocus}
 							on:blur={handleBlur}
@@ -69,6 +79,10 @@
 					</div>
 					<div>
 						<input
+							use:cleave={{
+								date: true,
+								datePattern: ['y']
+							}}
 							autocomplete="off"
 							on:focus={handleFocus}
 							on:blur={handleBlur}
@@ -83,6 +97,10 @@
 				<label for="cvc">CVC</label>
 				<div>
 					<input
+						use:cleave={{
+							blocks: [3],
+							numericOnly: true
+						}}
 						autocomplete="off"
 						on:focus={handleFocus}
 						on:blur={handleBlur}
@@ -118,7 +136,7 @@
 			margin-inline: auto;
 		}
 	}
-	
+
 	label {
 		font-size: theme('fontSize.xs');
 		letter-spacing: 0.15rem;
