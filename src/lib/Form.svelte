@@ -1,23 +1,36 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown } from '$lib/form.js';
+	import { handleKeyDown, showErrors } from '$lib/form.js';
 
 	let isValid = false;
 
-	function handleFormSubmit() {
-		// validate form and then change state
-		//TODO: Add form validation logic
-		isValid = true;
+	function handleFormSubmit(event) {
+		const form = event.target;
+		// Check form validity
+		if (form.checkValidity()) {
+			// Submit if valid
+			isValid = true;
+		} else {
+			// If invalid,
+			// prevent form submission.
+			event.preventDefault();
+			// Display appropriate error messages for each form element
+			const formElements = form.elements; // Collect the form elements into a collection
+			showErrors(formElements); // showErrors will iterate over each element,
+																// and show the appropriate error message.
+		}
 	}
 
 	function handleFocus(e) {
-		// add gradient class to parent element of input element
+		// Add gradient class to parent element of input element
+		// when element comes into focus.
 		e.target.parentElement.classList.add('gradient');
 	}
 
 	function handleBlur(e) {
-		// remove gradient class from parent element of input element
+		// Remove gradient class from parent element of input element
+		// when element goes out of focus.
 		e.target.parentElement.classList.remove('gradient');
 	}
 

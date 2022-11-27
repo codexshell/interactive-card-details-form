@@ -18,4 +18,27 @@ const handleKeyDown = (e) => {
 	}
 };
 
-export { handleKeyDown };
+// function to display appropriate error message,
+// for each element in a collection of html elements
+const showErrors = (formElements) => {
+	// Convert collection to an iterable
+	formElements = Array.from(formElements);
+	// For each element show the appropriate error message
+	formElements.forEach(el => showError(el));
+};
+
+// function to display appropriate error message,
+// for an individual element.
+const showError = (el) => {
+	// We are only interested in one validation constraint
+	// .i.e `required`.
+	// If element is empty
+	if (el.validity.valueMissing) {
+		// style element appropriately
+		const errorElement = el.nextElementSibling.firstElementChild; // Select the span nested in the div, 
+																																	// following the input element
+		errorElement.textContent = "Can't be blank";
+	}
+}
+
+export { handleKeyDown, showErrors };
