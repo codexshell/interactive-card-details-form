@@ -12,12 +12,6 @@
 		if (form.checkValidity()) {
 			// Submit if valid
 			isValid = true;
-			// clear out inputs store value
-			$inputs.cvc = "";
-			$inputs.cardHolder = "";
-			$inputs.cardNumber = "";
-			$inputs.month = "";
-			$inputs.year = "";
 		} else {
 			// If invalid,
 			// prevent form submission.
@@ -44,6 +38,12 @@
 	function hadndleContinueClick() {
 		// render new copy of the form
 		isValid = false;
+		// clear out inputs store value
+		$inputs.cvc = '';
+		$inputs.cardHolder = '';
+		$inputs.cardNumber = '';
+		$inputs.month = '';
+		$inputs.year = '';
 	}
 </script>
 
