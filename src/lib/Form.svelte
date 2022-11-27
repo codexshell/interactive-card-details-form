@@ -13,7 +13,11 @@
 			// Submit if valid
 			isValid = true;
 			// clear out inputs store value
-			$inputs = "";
+			$inputs.cvc = "";
+			$inputs.cardHolder = "";
+			$inputs.cardNumber = "";
+			$inputs.month = "";
+			$inputs.year = "";
 		} else {
 			// If invalid,
 			// prevent form submission.
