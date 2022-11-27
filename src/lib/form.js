@@ -24,7 +24,7 @@ const showErrors = (formElements) => {
 	// Convert collection to an iterable
 	formElements = Array.from(formElements);
 	// For each element show the appropriate error message
-	formElements.forEach(el => showError(el));
+	formElements.forEach((el) => showError(el));
 };
 
 // function to display appropriate error message,
@@ -32,13 +32,20 @@ const showErrors = (formElements) => {
 const showError = (el) => {
 	// We are only interested in one validation constraint
 	// .i.e `required`.
+
+	let errorElement = el.nextElementSibling.firstElementChild; // Select the span nested in the div,
+	// following the input element
 	// If element is empty
 	if (el.validity.valueMissing) {
 		// style element appropriately
-		const errorElement = el.nextElementSibling.firstElementChild; // Select the span nested in the div, 
-																																	// following the input element
 		errorElement.textContent = "Can't be blank";
+		el.style.border = '0.05rem solid red';
+	} else {
+		// If element is not empty,
+		// remove validation errors
+		errorElement.textContent = '';
+		el.style = '';
 	}
-}
+};
 
-export { handleKeyDown, showErrors };
+export { handleKeyDown, showErrors, showError };

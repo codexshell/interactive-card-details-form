@@ -1,7 +1,7 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown, showErrors } from '$lib/form.js';
+	import { handleKeyDown, showErrors, showError } from '$lib/form.js';
 
 	let isValid = false;
 
@@ -18,7 +18,7 @@
 			// Display appropriate error messages for each form element
 			const formElements = form.elements; // Collect the form elements into a collection
 			showErrors(formElements); // showErrors will iterate over each element,
-																// and show the appropriate error message.
+			// and show the appropriate error message.
 		}
 	}
 
@@ -47,6 +47,7 @@
 			<label for="name">Cardholder Name</label>
 			<div>
 				<input
+					on:input={(e) => showError(e.target)}
 					on:focus={handleFocus}
 					on:blur={handleBlur}
 					id="name"
@@ -64,6 +65,7 @@
 			<label for="number">Card Number</label>
 			<div>
 				<input
+					on:input={(e) => showError(e.target)}
 					on:keydown={handleKeyDown}
 					use:cleave={{
 						creditCard: true
@@ -88,6 +90,7 @@
 				<div class="date">
 					<div>
 						<input
+							on:input={(e) => showError(e.target)}
 							on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
@@ -107,6 +110,7 @@
 					</div>
 					<div>
 						<input
+							on:input={(e) => showError(e.target)}
 							on:keydown={handleKeyDown}
 							use:cleave={{
 								date: true,
@@ -130,6 +134,7 @@
 				<label for="cvc">CVC</label>
 				<div>
 					<input
+						on:input={(e) => showError(e.target)}
 						on:keydown={handleKeyDown}
 						use:cleave={{
 							blocks: [3],
