@@ -47,6 +47,9 @@
 			<label for="name">Cardholder Name</label>
 			<div>
 				<input
+					use:cleave={{
+						
+					}}
 					on:input={(e) => showError(e.target)}
 					on:focus={handleFocus}
 					on:blur={handleBlur}

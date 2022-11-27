@@ -1,23 +1,19 @@
 <script>
-	export let cvc = '000';
-	export let month = '00';
-	export let year = '00';
-	export let cardHolder = 'Jane Appleseed';
-	export let cardNumber = '0000 0000 0000 0000';
+	import { inputs } from './stores.js';
 </script>
 
 <section class="relative">
 	<div class="img-container | back-img-container">
 		<img class="back" src="/bg-card-back.png" alt="" />
-		<span class="card-cvc">{cvc}</span>
+		<span class="card-cvc">{$inputs.cvc}</span>
 	</div>
 
 	<div class="img-container | front-img-container">
 		<span class="logo-svg"><img src="/card-logo.svg" alt="" /></span>
 		<img class="front" src="/bg-card-front.png" alt="" />
-		<span class="card-number">{cardNumber}</span>
-		<span class="card-holder">{cardHolder}</span>
-		<span class="expiry">{month}/{year}</span>
+		<span class="card-number">{$inputs.cardNumber}</span>
+		<span class="card-holder">{$inputs.cardHolder}</span>
+		<span class="expiry">{$inputs.month}/{$inputs.year}</span>
 	</div>
 </section>
 
