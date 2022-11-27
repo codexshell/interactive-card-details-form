@@ -20,7 +20,8 @@
 				"svelte.svelte-vscode",
 				"christian-kohler.npm-intellisense",
 				"christian-kohler.path-intellisense",
-				"naumovs.color-highlight"
+				"naumovs.color-highlight",
+				"VisualStudioExptTeam.vscodeintellicode"
 			]
 		}
 	}
