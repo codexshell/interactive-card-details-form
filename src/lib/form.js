@@ -23,6 +23,10 @@ const handleKeyDown = (e) => {
 const showErrors = (formElements) => {
 	// Convert collection to an iterable
 	formElements = Array.from(formElements);
+	// Verify all elements are of type text,
+	// and filter out any that are not
+	formElements = formElements.filter((el) => el.type === 'text');
+	console.log(formElements);
 	// For each element show the appropriate error message
 	formElements.forEach((el) => showError(el));
 };
