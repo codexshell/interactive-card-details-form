@@ -39,6 +39,7 @@
 					id="name"
 					type="text"
 					placeholder="e.g. Jane Appleseed"
+					required
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -60,6 +61,7 @@
 					id="number"
 					type="text"
 					placeholder="e.g. 1234 5678 9123 0000"
+					required
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -84,6 +86,7 @@
 							id="exp"
 							type="text"
 							placeholder="MM"
+							required
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -101,6 +104,7 @@
 							on:blur={handleBlur}
 							type="text"
 							placeholder="YY"
+							required
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -124,6 +128,7 @@
 						id="cvc"
 						type="text"
 						placeholder="e.g. 123"
+						required
 					/>
 					<div class="relative">
 						<span class="error" />
