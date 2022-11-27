@@ -21,7 +21,11 @@
 				"christian-kohler.npm-intellisense",
 				"christian-kohler.path-intellisense",
 				"naumovs.color-highlight",
-				"VisualStudioExptTeam.vscodeintellicode"
+				"VisualStudioExptTeam.vscodeintellicode",
+				"vscode-icons-team.vscode-icons",
+				"ecmel.vscode-html-css",
+				"streetsidesoftware.code-spell-checker",
+				"wayou.vscode-todo-highlight"
 			]
 		}
 	}
