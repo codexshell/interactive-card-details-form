@@ -23,6 +23,7 @@
 		flex-direction: column;
 		gap: theme('gap.20');
 		max-width: 90rem;
+		padding-bottom: theme("padding.28");
 	}
 
 	@media (min-width: theme('screens.xl')) {

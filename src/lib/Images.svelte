@@ -53,10 +53,30 @@
 		height: 15rem;
 	}
 
+	@media (min-width: theme('screens.sm')) {
+		section {
+			padding: theme('padding.6');
+			padding-inline: theme('padding.16');
+		}
+	}
+
+	@media (min-width: theme('screens.md')) {
+		section {
+			padding-inline: theme('padding.28');
+		}
+	}
+
+	@media (min-width: theme('screens.lg')) {
+		section {
+			padding-inline: theme('padding.64');
+		}
+	}
+
 	@media (min-width: theme('screens.xl')) {
 		section {
 			background-image: url('/bg-main-desktop.png');
 			height: 100vh;
+			padding: 0;
 		}
 	}
 
@@ -109,7 +129,13 @@
 		.card-cvc {
 			font-size: theme('fontSize.base');
 			right: 4.5rem;
-			top: 8.75rem;
+			top: 8rem;
+		}
+	}
+
+	@media (min-width: 90rem) {
+		.card-cvc {
+			top: 9rem;
 		}
 	}
 
@@ -124,9 +150,15 @@
 
 	@media (min-width: theme('screens.xl')) {
 		.expiry {
-			font-size: theme('fontSize.base');
-			top: 10.5rem;
-			left: 24rem;
+			font-size: theme('fontSize.sm');
+			top: 9rem;
+			left: 20rem;
+		}
+	}
+
+	@media (min-width: 90rem) {
+		.expiry {
+			top: 10rem;
 		}
 	}
 
@@ -142,9 +174,15 @@
 
 	@media (min-width: theme('screens.xl')) {
 		.card-holder {
-			font-size: theme('fontSize.base');
+			font-size: theme('fontSize.sm');
 			left: 3rem;
-			top: 10.5rem;
+			top: 9rem;
+		}
+	}
+
+	@media (min-width: 90rem) {
+		.card-holder {
+			top: 10rem;
 		}
 	}
 
@@ -158,8 +196,14 @@
 
 	@media (min-width: theme('screens.xl')) {
 		.card-number {
-			font-size: theme('fontSize.3xl');
+			font-size: theme('fontSize.2xl');
 			left: 3rem;
+			top: 6rem;
+		}
+	}
+
+	@media (min-width: 90rem) {
+		.card-number {
 			top: 7rem;
 		}
 	}

@@ -115,9 +115,10 @@
 		form {
 			max-width: theme('maxWidth.md');
 			font-size: theme('fontSize.xl');
+			margin-inline: auto;
 		}
 	}
-
+	
 	label {
 		font-size: theme('fontSize.xs');
 		letter-spacing: 0.15rem;
