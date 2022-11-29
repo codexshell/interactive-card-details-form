@@ -12,9 +12,6 @@
 			// Submit if valid
 			isValid = true;
 		} else {
-			// If invalid,
-			// prevent form submission.
-			event.preventDefault();
 			// Display appropriate error messages for each form element
 			const formElements = form.elements; // Collect the form elements into a collection
 			showErrors(formElements); // showErrors will iterate over each element,
