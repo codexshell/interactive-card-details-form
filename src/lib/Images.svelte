@@ -11,8 +11,8 @@
 	<div class="img-container | front-img-container">
 		<span class="logo-svg"><img src="/card-logo.svg" alt="" /></span>
 		<img class="front" src="/bg-card-front.png" alt="" />
-		<span class="card-number">{$inputs.cardNumber}</span>
-		<span class="card-holder">{$inputs.cardHolder}</span>
+		<span class="card-number">{$inputs.number}</span>
+		<span class="card-holder">{$inputs.name}</span>
 		<span class="expiry">{$inputs.month}/{$inputs.year}</span>
 	</div>
 </section>

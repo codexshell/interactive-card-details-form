@@ -2,8 +2,31 @@
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
 	import { handleKeyDown, showErrors, showError } from '$lib/form.js';
+	import { inputs } from '$lib/stores.js';
 
 	let isValid = false;
+
+	// Function expression to update inputs store
+	// when an input field is changed.
+	// Instead of binding the event handler to each input field,
+	// bind it to the parent element,
+	// and each element will have access to it automatically.
+	function handleInputChange(event) {
+		const target = event.target;
+		// Get the key for the particular property,
+		// to be updated in the store.
+		// The key value is the same as,
+		// that of the id of the element
+		const key = target.id;
+		// Update the individual property in the inputs store
+		inputs.update((currentValue) => {
+			const nextValue = {
+				...currentValue,
+				[key]: target.value
+			};
+			return nextValue;
+		});
+	}
 
 	function handleFormSubmit(event) {
 		const form = event.target;
@@ -39,7 +62,13 @@
 
 <!-- default state -->
 {#if !isValid}
-	<form novalidate autocomplete="off" class="flow" on:submit|preventDefault={handleFormSubmit}>
+	<form
+		novalidate
+		autocomplete="off"
+		class="flow"
+		on:submit|preventDefault={handleFormSubmit}
+		on:input={handleInputChange}
+	>
 		<div class="wrapper">
 			<label for="name">Cardholder Name</label>
 			<div>
@@ -83,7 +112,7 @@
 
 		<div class="date-cvc">
 			<div>
-				<label for="exp">Exp. Date (MM/YY)</label>
+				<label for="month">Exp. Date (MM/YY)</label>
 				<div class="date">
 					<div>
 						<input
@@ -96,7 +125,7 @@
 							autocomplete="off"
 							on:focus={handleFocus}
 							on:blur={handleBlur}
-							id="exp"
+							id="month"
 							type="text"
 							placeholder="MM"
 							required
@@ -119,6 +148,7 @@
 							type="text"
 							placeholder="YY"
 							required
+							id="year"
 						/>
 						<div class="relative">
 							<span class="error" />
