@@ -1,7 +1,7 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown, showErrors, showError } from '$lib/form.js';
+	import { handleKeyDown, showErrors, showError, isInvalid } from '$lib/form.js';
 	import { inputs } from '$lib/stores.js';
 
 	let isValid = false;
@@ -31,7 +31,9 @@
 	function handleFormSubmit(event) {
 		const form = event.target;
 		// Check form validity
-		if (form.checkValidity()) {
+		const elements = form.elements;
+		// If form is valid
+		if (!isInvalid(elements)) {
 			// Submit if valid
 			isValid = true;
 		} else {
@@ -49,14 +51,22 @@
 	}
 
 	function handleBlur(e) {
-		// Remove gradient class from parent element of input element
+		// Remove gradient class from parent element of input element,
 		// when element goes out of focus.
 		e.target.parentElement.classList.remove('gradient');
 	}
 
 	function hadndleContinueClick() {
-		// render new copy of the form
+		// Render new copy of the form
 		isValid = false;
+		// Set writable input to default values
+		inputs.set({
+			number: '0000 0000 0000 0000',
+			name: 'Jane Appleseed',
+			month: '00',
+			year: '00',
+			cvc: '000'
+		});
 	}
 </script>
 

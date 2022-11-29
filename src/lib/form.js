@@ -26,7 +26,6 @@ const showErrors = (formElements) => {
 	// Verify all elements are of type text,
 	// and filter out any that are not
 	formElements = formElements.filter((el) => el.type === 'text');
-	console.log(formElements);
 	// For each element show the appropriate error message
 	formElements.forEach((el) => showError(el));
 };
@@ -52,4 +51,17 @@ const showError = (el) => {
 	}
 };
 
-export { handleKeyDown, showErrors, showError };
+// A function to iterate over each input element,
+// and check whether each element satisfies the `required` constraint
+const isInvalid = (formElements) => {
+	// Convert the collection of form elements,
+	// into an iterable collection
+	formElements = Array.from(formElements);
+	// Check if there is at least one element,
+	// that fails the `required` constraint,
+	// if so return false
+	const invalid = formElements.some((el) => el.validity.valueMissing);
+	return invalid;
+};
+
+export { handleKeyDown, showErrors, showError, isInvalid };
