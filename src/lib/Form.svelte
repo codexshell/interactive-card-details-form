@@ -90,6 +90,7 @@
 					type="text"
 					placeholder="e.g. Jane Appleseed"
 					required
+					bind:value={$inputs.cardHolder}
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -113,6 +114,7 @@
 					type="text"
 					placeholder="e.g. 1234 5678 9123 0000"
 					required
+					bind:value={$inputs.cardNumber}
 				/>
 				<div class="relative">
 					<span class="error" />
@@ -139,6 +141,7 @@
 							type="text"
 							placeholder="MM"
 							required
+							bind:value={$inputs.month}
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -184,6 +187,7 @@
 						type="text"
 						placeholder="e.g. 123"
 						required
+						bind:value={$inputs.cvc}
 					/>
 					<div class="relative">
 						<span class="error" />

@@ -49,6 +49,7 @@ const showError = (el) => {
 		errorElement.textContent = '';
 		el.style = '';
 	}
+
 };
 
 // A function to iterate over each input element,

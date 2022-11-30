@@ -7,3 +7,4 @@ export const inputs = writable({
 	year: '00',
 	cvc: '000'
 });
+
