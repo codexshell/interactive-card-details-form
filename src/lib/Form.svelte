@@ -141,7 +141,6 @@
 							type="text"
 							placeholder="MM"
 							required
-							bind:value={$inputs.month}
 						/>
 						<div class="relative">
 							<span class="error" />
@@ -187,7 +186,6 @@
 						type="text"
 						placeholder="e.g. 123"
 						required
-						bind:value={$inputs.cvc}
 					/>
 					<div class="relative">
 						<span class="error" />
