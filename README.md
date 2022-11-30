@@ -61,7 +61,22 @@ Users should be able to:
 <form novalidate>...</form>
 ```
 
-- The attribute is a boolean attribute it presence turns off automatic form validation. In it's absence the browswer will continue with automatic form validation
+- How to create an object with dynamic keys in JavaScript
+- This is made possible by enclosing the expression inside square brackets.
+
+```js
+const key = 'title';
+const value = 'JavaScript';
+
+const course = {
+	[key]: value,
+	price: '$99'
+};
+```
+
+- In the above code [key] will evaluate the expression to `title`
+
+- The attribute is a boolean attribute it presence turns off automatic form validation. In it's absence the browser will continue with automatic form validation
 
 ### Continued development
 
@@ -74,6 +89,8 @@ Users should be able to:
 - [Setting linear gradient on border](https://css-tricks.com/gradient-borders-in-css/) - This helped me to set up a linear-gradient on a border.
 
 - [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) - This is an amazing article which helped understand the different types of client-side form validation. I'd recommend it to anyone still learning this concept.
+
+- [How to create an object with dynamic keys in JavaScript](https://attacomsian.com/blog/javascript-create-object-with-dynamic-keys) - This allows one to have expressions as the keys of JavaScript object
 
 ## Author
 

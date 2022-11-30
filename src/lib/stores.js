@@ -1,11 +1,10 @@
 import { writable } from 'svelte/store';
 
-const inputs = writable({
-	cardHolder: '',
-	cardNumber: '',
-	month: '',
-	year: '',
-	cvc: ''
+export const inputs = writable({
+	number: '0000 0000 0000 0000',
+	name: 'Jane Appleseed',
+	month: '00',
+	year: '00',
+	cvc: '000'
 });
 
-export { inputs };

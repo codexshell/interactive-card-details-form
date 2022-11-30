@@ -1,21 +1,42 @@
 <script>
 	// cleavejs import for number formatting
 	import { cleave } from 'svelte-cleavejs';
-	import { handleKeyDown, showErrors, showError } from '$lib/form.js';
+	import { handleKeyDown, showErrors, showError, isInvalid } from '$lib/form.js';
 	import { inputs } from '$lib/stores.js';
 
 	let isValid = false;
 
+	// Function expression to update inputs store
+	// when an input field is changed.
+	// Instead of binding the event handler to each input field,
+	// bind it to the parent element,
+	// and each element will have access to it automatically.
+	function handleInputChange(event) {
+		const target = event.target;
+		// Get the key for the particular property,
+		// to be updated in the store.
+		// The key value is the same as,
+		// that of the id of the element
+		const key = target.id;
+		// Update the individual property in the inputs store
+		inputs.update((currentValue) => {
+			const nextValue = {
+				...currentValue,
+				[key]: target.value
+			};
+			return nextValue;
+		});
+	}
+
 	function handleFormSubmit(event) {
 		const form = event.target;
 		// Check form validity
-		if (form.checkValidity()) {
+		const elements = form.elements;
+		// If form is valid
+		if (!isInvalid(elements)) {
 			// Submit if valid
 			isValid = true;
 		} else {
-			// If invalid,
-			// prevent form submission.
-			event.preventDefault();
 			// Display appropriate error messages for each form element
 			const formElements = form.elements; // Collect the form elements into a collection
 			showErrors(formElements); // showErrors will iterate over each element,
@@ -30,26 +51,34 @@
 	}
 
 	function handleBlur(e) {
-		// Remove gradient class from parent element of input element
+		// Remove gradient class from parent element of input element,
 		// when element goes out of focus.
 		e.target.parentElement.classList.remove('gradient');
 	}
 
 	function hadndleContinueClick() {
-		// render new copy of the form
+		// Render new copy of the form
 		isValid = false;
-		// clear out inputs store value
-		$inputs.cvc = '';
-		$inputs.cardHolder = '';
-		$inputs.cardNumber = '';
-		$inputs.month = '';
-		$inputs.year = '';
+		// Set writable input to default values
+		inputs.set({
+			number: '0000 0000 0000 0000',
+			name: 'Jane Appleseed',
+			month: '00',
+			year: '00',
+			cvc: '000'
+		});
 	}
 </script>
 
 <!-- default state -->
 {#if !isValid}
-	<form novalidate autocomplete="off" class="flow" on:submit|preventDefault={handleFormSubmit}>
+	<form
+		novalidate
+		autocomplete="off"
+		class="flow"
+		on:submit|preventDefault={handleFormSubmit}
+		on:input={handleInputChange}
+	>
 		<div class="wrapper">
 			<label for="name">Cardholder Name</label>
 			<div>
@@ -95,7 +124,7 @@
 
 		<div class="date-cvc">
 			<div>
-				<label for="exp">Exp. Date (MM/YY)</label>
+				<label for="month">Exp. Date (MM/YY)</label>
 				<div class="date">
 					<div>
 						<input
@@ -108,7 +137,7 @@
 							autocomplete="off"
 							on:focus={handleFocus}
 							on:blur={handleBlur}
-							id="exp"
+							id="month"
 							type="text"
 							placeholder="MM"
 							required
@@ -132,7 +161,7 @@
 							type="text"
 							placeholder="YY"
 							required
-							bind:value={$inputs.year}
+							id="year"
 						/>
 						<div class="relative">
 							<span class="error" />
